@@ -1,0 +1,32 @@
+body.item {
+	background-image: url(../img/back4.jpg);
+	background-repeat: repeat;
+}
+
+.main-img {
+	width: 400px;
+	display: block;
+	margin: auto;
+	border: 1px solid #702E0D;	
+}
+
+.property {
+	font-size: 1.5em;
+	color: #103BB3;
+	line-height: 0.5em;
+}
+
+.property-value {
+	font-weight: bolder;
+}
+
+.item-description {
+	font-size: 1.1em;
+	font-family: inherit;
+	font-style: italic;
+	text-align: justify;c
+	font-weight: bolder;
+	color: chocolate;
+	padding: 0 27em;
+	text-indent: 20px;
+}

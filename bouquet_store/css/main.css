@@ -1,0 +1,114 @@
+body {
+	margin:50px 0px; 
+	padding:0px;
+	text-align:center;
+}
+
+body.main {
+	background-image: url(../img/back4.jpg);
+	background-repeat: repeat;
+}
+
+body.contacts {
+	background-image: url(../img/back3.jpg);
+	background-repeat: repeat;
+}
+
+h1 {
+	color: dimgrey;
+	font-size: 2.8em;
+}
+
+#secondary-text {
+	color: chocolate;
+	font-size: 1.8em;
+}
+
+#contacts {
+	font-size: 1.8em;	
+}
+
+.main-font {
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+.title {
+	font-size: 2em;
+	margin-left: -600px;
+	color: #702E0D;
+}
+
+.preview-img {
+	width: 170px;
+	display: block;
+	margin: auto;
+	border: 1px solid #702E0D;
+}
+
+.price {
+	color: #0CA819;
+	font-size: 2.5em;
+	text-align: center;
+}
+
+.description {
+	color: #F71307;
+	font-family: monospace;
+	font-style: italic;
+	text-align: justify;
+	font-weight: bolder;
+}
+
+.button-buy {
+	height: 50px;
+	width: 120px;
+	margin-left: -40px;
+}
+
+li {
+	list-style: none;
+	padding-bottom: 25px;
+}
+
+table.big-table {
+    table-layout: fixed;
+    width: 600px;
+    margin: auto;
+}
+
+table.little-table {
+    table-layout: fixed;
+    width: 400px;
+    margin: auto;
+}
+
+.col1 {
+	 width: 150px;
+}
+
+.col2 { 
+	width: 400px;
+}
+
+hr {
+	background-color: #702E0D;
+	height: 1px;
+}
+
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+a.main-link:hover, a.main-link:visited, a.main-link:link, a.main-link:active {
+	color: dimgrey;
+}
+
+a.email-link:hover, a.email-link:visited, a.email-link:link, a.email-link:active {
+	color: brown;
+}
+
+.contacts-info {
+	font-size: 1.5em;
+	color: brown;
+}
