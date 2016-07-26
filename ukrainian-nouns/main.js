@@ -1,4 +1,7 @@
 var matchedWords = [],
+	maxNumber = 50,
+	searchForm = $('#searchForm'),
+	searchTextElement = $('#searchText'),
 	wordsListElement = $('ul');
 
 $('#searchForm').submit(function () {
@@ -8,33 +11,61 @@ $('#searchForm').submit(function () {
 
 
 function searchWords() {
-	var searchPattern = $('#searchPattern').val();
+	var searchText = searchTextElement.val();
 
-	searchPattern = searchPattern.toLowerCase();
+	searchText = searchText.toLowerCase();
+	searchText = prepareSearchPattern(searchText);
 	
 	var wordsCount = bNouns.length;
-	console.log('Count ' + wordsCount);
+	//console.log('Count ' + wordsCount);
 
 	clearPreviousSearchResults();
 
 	for(var i = 0; i < wordsCount; i++) {
-		if (bNouns[i].name.indexOf(searchPattern) > -1) {
+		if(searchText.test(bNouns[i].name)) {
 			matchedWords.push(bNouns[i]);
 		}
 	}
-	console.log('Matched words count ' + matchedWords.length);
+	//console.log('Matched words count ' + matchedWords.length);
 	
-	displayCurrentSearchResults();
+	displayCurrentSearchResults(maxNumber);
 }
 
 
-function prepareSearchPattern(pattern) {
+function prepareSearchPattern(searchText) {
+	var pattern = searchText,
+		searchTextLength = searchText.length,
+		fisrtSearchCharacter = searchText.charAt(0),
+		lastSeachCharacter = searchText.charAt(searchTextLength - 1);
 
-	//var prepared = new RegExp(^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$);
+	if (!(/\*/.test(fisrtSearchCharacter))) {
+	 pattern = '^' + pattern;
+	}
+
+	if (/\./.test(lastSeachCharacter) || /[а-я]/.test(lastSeachCharacter)) {
+		pattern = pattern + '$';
+	}
+
+	pattern = pattern.replace(/\./g, '[а-я]');
+	pattern = pattern.replace(/\*/g, '[а-я]*');
+
+	return new RegExp(pattern);
 }
 
-function displayCurrentSearchResults() {
-	for(var i = 0; i < matchedWords.length; i++) {
+function displayCurrentSearchResults(maxNumber) {
+	var searchResultsHeader = document.createElement('h3');
+
+	if (maxNumber < matchedWords.length) {
+		searchResultsHeader.innerHTML = 'Перші ' + maxNumber + ' знайдених слів:';
+	} else if (matchedWords.length == 0) {
+		searchResultsHeader.innerHTML = 'Жодного слова не знайдено...';
+	} else searchResultsHeader.innerHTML = 'Знайдено ' + matchedWords.length + ' слів:';
+	
+	searchForm.append(searchResultsHeader); 
+
+	var numberToDisplay = (matchedWords.length < maxNumber) ? matchedWords.length : maxNumber;
+
+	for(var i = 0; i < numberToDisplay; i++) {
 		var wordElement = document.createElement('li');
 
 		wordElement.innerHTML = matchedWords[i].name;
@@ -46,4 +77,5 @@ function displayCurrentSearchResults() {
 function clearPreviousSearchResults() {
 	matchedWords = [];
 	wordsListElement.empty();
+	$('h3').remove();
 }
