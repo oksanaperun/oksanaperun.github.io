@@ -1,38 +1,61 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="icon" href="img/favicon.ico">
 		<title>Ukrainian Nouns Vocabulary</title>
 		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" href="main.css">
 	<head>
 	<body>
-		<h1>Пошук слів</h1>
-		<p>У формі пошуку можна використовувати наступні символи:</p>
-		<p>* - для позначення будь-якої кількості літер, в тому числі ні однієї</p>
-		<p>. - для позначення будь-якої рівно однієї літери</p>
-
-		<form id="searchForm">
-			<input type="text" value="....." id="searchText">
-			<input type="submit" value="Знайти">
-		</form>
-
-		<ul>
-
-		</ul>
-
-		<br/>
-		<div class="search-examples__header">
-			Приклади пошуку:
+		<div class="header">
+			<h1>Cловник іменників української мови</h1>
 		</div>
-		<div class="search-examples__item">
-			<p>1. Щоб дізнатися, чи існує певне слово, просто вводимо його в поле пошуку, наприклад, "бук"</p>
-			<p>2. Щоб знайти всі слова, які розпочинаються на "бук", вводимо в поле пошуку "бук*"</p>
-			<p>3. Щоб знайти всі слова, які закінчуються на "бук", вводимо в поле пошуку "*бук"</p>
-			<p>4. Щоб знайти всі слова, які містять в собі "бук", вводимо в поле пошуку "*бук*"</p>
-			<p>5. Щоб знайти всі слова, які складаються з трьох літер, вводимо в поле пошуку "..."</p>
-			<p>6. Щоб знайти всі слова, які складаються з п'яти літер і розпочинаються на "бук", вводимо в поле пошуку "бук.."</p>
-		</div>
+		<div class="content">
+			<table class="search-table">
+				<tr>
+					<th class="search-table-header">
+						<h2>Пошук слів</h2>
+					</th>	
+				</tr>
+  				<tr>
+    				<td class="search-table-form">
+						<form id="searchForm" class="navbar-form navbar-left" role="search">
+  							<div class="form-group">
+   						 		<input type="text" id="searchText" class="form-control" value=".....">
+  								<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Знайти</button>
+						</form>
+    				</td>
+   				 	<td class="search-table-description">
+   				 		<p>У формі пошуку можна використовувати наступні символи:</p>
+   				 		<p>* (зірочка) - для позначення будь-якої кількості літер, в тому числі ні однієї</p>
+						<p>. (крапка) - для позначення будь-якої рівно однієї літери</p>			
+						<p>' (апостроф) - для позначення апострофа</p>	
+   				 	</td>
+ 				</tr>
+ 				<tr>
+ 					<td>
+ 						<div class="search-table-results">
+ 						</div>
+ 					</td>
+ 					<td>
+ 						<div class="search-table-examples">
+							<button type="button" id="showSearchExamples" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Показати приклади пошуку</button>
+							<button type="button" id="hideSearchExamples" class="btn btn-default btn-sm" style="display: none;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Сховати приклади пошуку</button>
+							<div class="search-table-examples-items" style="display: none;">
+								<p>1. Щоб дізнатися, чи існує певне слово, просто вводимо його в поле пошуку, наприклад, "бук"</p>
+								<p>2. Щоб знайти всі слова, які розпочинаються на "бук", вводимо в поле пошуку "бук*"</p>
+								<p>3. Щоб знайти всі слова, які закінчуються на "бук", вводимо в поле пошуку "*бук"</p>
+								<p>4. Щоб знайти всі слова, які містять в собі "бук", вводимо в поле пошуку "*бук*"</p>
+								<p>5. Щоб знайти всі слова, які складаються з трьох літер, вводимо в поле пошуку "..."</p>
+								<p>6. Щоб знайти всі слова, які складаються з п'яти літер і розпочинаються на "бук", вводимо в поле пошуку "бук.."</p>
+								<p>7. Щоб знайти всі слова, які містять апостроф, вводимо в поле пошуку "*'*"</p>
+							</div>
+						</div>	
+ 					</td>
+ 				</tr>
+			</table>
 
+		</div>
 		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 

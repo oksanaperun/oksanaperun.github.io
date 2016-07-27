@@ -1,17 +1,21 @@
 var matchedWords = [],
-	maxNumber = 50,
+	maxNumber = 100,
 	searchForm = $('#searchForm'),
 	searchTextElement = $('#searchText'),
-	wordsListElement = $('ul');
+	showSearchExamplesButton = $('#showSearchExamples'),
+	hideSearchExamplesButton = $('#hideSearchExamples'),
+	searchExamplesItems = $('.search-table-examples-items'),
+	searchResults = $('.search-table-results');
 
-$('#searchForm').submit(function () {
+searchForm.submit(function () {
  	searchWords();
  	return false;
 });
 
 
 function searchWords() {
-	var searchText = searchTextElement.val();
+	var searchText = searchTextElement.val(),
+		isApostropheInSearchText = (searchText.indexOf('\'') > -1);
 
 	searchText = searchText.toLowerCase();
 	searchText = prepareSearchPattern(searchText);
@@ -22,7 +26,9 @@ function searchWords() {
 	clearPreviousSearchResults();
 
 	for(var i = 0; i < wordsCount; i++) {
-		if(searchText.test(bNouns[i].name)) {
+		var wordName = isApostropheInSearchText ? bNouns[i].name : bNouns[i].name.replace('\'','');
+
+		if(searchText.test(wordName)) {
 			matchedWords.push(bNouns[i]);
 		}
 	}
@@ -42,7 +48,7 @@ function prepareSearchPattern(searchText) {
 	 pattern = '^' + pattern;
 	}
 
-	if (/\./.test(lastSeachCharacter) || /[а-я]/.test(lastSeachCharacter)) {
+	if (!(/\*/.test(lastSeachCharacter))) {
 		pattern = pattern + '$';
 	}
 
@@ -55,27 +61,71 @@ function prepareSearchPattern(searchText) {
 function displayCurrentSearchResults(maxNumber) {
 	var searchResultsHeader = document.createElement('h3');
 
-	if (maxNumber < matchedWords.length) {
+	if (maxNumber < matchedWords.length)
 		searchResultsHeader.innerHTML = 'Перші ' + maxNumber + ' знайдених слів:';
-	} else if (matchedWords.length == 0) {
-		searchResultsHeader.innerHTML = 'Жодного слова не знайдено...';
-	} else searchResultsHeader.innerHTML = 'Знайдено ' + matchedWords.length + ' слів:';
+	else searchResultsHeader.innerHTML = getSearchResultsHeaderText(matchedWords.length);
 	
-	searchForm.append(searchResultsHeader); 
+	searchResults.append(searchResultsHeader); 
 
-	var numberToDisplay = (matchedWords.length < maxNumber) ? matchedWords.length : maxNumber;
+	if (matchedWords.length != 0) {
+		var numberToDisplay = (matchedWords.length < maxNumber) ? matchedWords.length : maxNumber,
+			searchResultsList = document.createElement('ul');
 
-	for(var i = 0; i < numberToDisplay; i++) {
-		var wordElement = document.createElement('li');
+		searchResults.append(searchResultsList); 
 
-		wordElement.innerHTML = matchedWords[i].name;
+		for(var i = 0; i < numberToDisplay; i++) {
+			var wordElement = document.createElement('li');
 
-		wordsListElement.append(wordElement); 
+			wordElement.innerHTML = matchedWords[i].name;
+
+			$('ul').append(wordElement); 
+		}
 	}
+}
+
+function getSearchResultsHeaderText(wordsNumber) {
+	var searchResultsHeader;
+
+	if (wordsNumber == 0 )
+		searchResultsHeader = 'Жодного слова не знайдено...';
+	else switch(wordsNumber % 10) {
+		case 1:
+			searchResultsHeader = 'Знайдено ' + wordsNumber + ' слово:';
+			break;
+		case 2:
+		case 3:
+		case 4:
+			searchResultsHeader = 'Знайдено ' + wordsNumber + ' слова:';
+			break;
+		default:
+			searchResultsHeader = 'Знайдено ' + wordsNumber + ' слів:';
+			break;
+	}
+
+	return searchResultsHeader;
 }
 
 function clearPreviousSearchResults() {
 	matchedWords = [];
-	wordsListElement.empty();
-	$('h3').remove();
+	searchResults.empty();
+}
+
+showSearchExamplesButton.click(function () {
+	showSearchExamples();
+});
+
+hideSearchExamplesButton.click(function () {
+	hideSearchExamples();
+});
+
+function showSearchExamples() {
+	showSearchExamplesButton.css("display", "none");
+	hideSearchExamplesButton.css("display", "block");
+	searchExamplesItems.css("display", "block");
+}
+
+function hideSearchExamples() {
+	showSearchExamplesButton.css("display", "block");
+	hideSearchExamplesButton.css("display", "none");
+	searchExamplesItems.css("display", "none");
 }

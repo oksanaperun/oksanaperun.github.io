@@ -1,11 +1,59 @@
 body {
-	margin:50px 50px; 
-	padding:0px;
+	background-image: url(img/tracery-horizontal-small.gif);
+	background-repeat: repeat-x;
 }
 
-.search-examples__header {
-	ont-size: small;
+.header {
+	text-align: center;
+	color: maroon;
 }
-.search-examples__item {
+
+.content {
+	background-image: url(img/tracery-horizontal-normal.gif);
+	background-repeat: repeat-x;
+	padding-top: 50px;
+	padding-left: 50px;
+}
+
+.search-table {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.search-table td {
+	vertical-align: top;
+}
+
+.search-table-header {
+	padding-left: 15px;
+}
+
+.search-table-form {
+	width: 50%;
+}
+.search-table-description {
+	width: 50%;
 	font-size: smaller;
+	color: gray;
+}
+
+.search-table-examples {
+	margin-top: 20px;
+}
+
+.search-table-examples-items {
+	font-size: 12px;
+	font-weight: normal;
+	margin-top: 10px;
+}
+
+ul {
+    -moz-column-count: 4;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 10px;
+    column-count: 4;
+    column-gap: 10px;
+    list-style: none;
+    padding: 0;
 }
