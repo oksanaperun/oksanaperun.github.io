@@ -20,16 +20,16 @@ function searchWords() {
 	searchText = searchText.toLowerCase();
 	searchText = prepareSearchPattern(searchText);
 	
-	var wordsCount = bNouns.length;
+	var wordsCount = nouns.length;
 	//console.log('Count ' + wordsCount);
 
 	clearPreviousSearchResults();
 
 	for(var i = 0; i < wordsCount; i++) {
-		var wordName = isApostropheInSearchText ? bNouns[i].name : bNouns[i].name.replace('\'','');
+		var wordName = isApostropheInSearchText ? nouns[i].name : nouns[i].name.replace("'","");
 
 		if(searchText.test(wordName)) {
-			matchedWords.push(bNouns[i]);
+			matchedWords.push(nouns[i]);
 		}
 	}
 	//console.log('Matched words count ' + matchedWords.length);
@@ -52,8 +52,8 @@ function prepareSearchPattern(searchText) {
 		pattern = pattern + '$';
 	}
 
-	pattern = pattern.replace(/\./g, '[а-я]');
-	pattern = pattern.replace(/\*/g, '[а-я]*');
+	pattern = pattern.replace(/\./g, '[а-яєії]');
+	pattern = pattern.replace(/\*/g, '[а-яєії]*');
 
 	return new RegExp(pattern);
 }
