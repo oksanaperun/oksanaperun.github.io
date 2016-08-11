@@ -33,12 +33,7 @@ body {
 	padding-left: 15px;
 }
 
-.search-table-form {
-	width: 50%;
-}
-
 .search-table-description {
-	width: 50%;
 	font-size: smaller;
 	color: gray;
 }
