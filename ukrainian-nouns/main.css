@@ -8,11 +8,19 @@ body {
 	color: maroon;
 }
 
-.content {
+.header-decoration {
 	background-image: url(img/tracery-horizontal-normal.gif);
 	background-repeat: repeat-x;
 	padding-top: 50px;
 	padding-left: 50px;
+}
+
+.container{
+
+}
+
+.row {
+	margin-bottom: 5px;
 }
 
 .search-table {
@@ -20,9 +28,6 @@ body {
     margin-right:auto;
 }
 
-.search-table td {
-	vertical-align: top;
-}
 
 .search-table-header {
 	padding-left: 15px;
@@ -31,10 +36,26 @@ body {
 .search-table-form {
 	width: 50%;
 }
+
 .search-table-description {
 	width: 50%;
 	font-size: smaller;
 	color: gray;
+}
+
+.search-table-results {
+   padding: 0px;
+}
+
+.search-table-results ul {
+    -moz-column-count: 4;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 10px;
+    column-count: 4;
+    column-gap: 10px;
+    list-style: none;
+    padding-left: 0px;
 }
 
 .search-table-examples {
@@ -45,15 +66,4 @@ body {
 	font-size: 12px;
 	font-weight: normal;
 	margin-top: 10px;
-}
-
-ul {
-    -moz-column-count: 4;
-    -moz-column-gap: 10px;
-    -webkit-column-count: 4;
-    -webkit-column-gap: 10px;
-    column-count: 4;
-    column-gap: 10px;
-    list-style: none;
-    padding: 0;
 }
