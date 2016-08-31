@@ -1,5 +1,6 @@
 var searchText,
-	matchedWords = [],	
+	matchedWords = [],
+	maxNumber = 100,
 	searchTextElement = $('#searchText'),
 	searchButton = $('#searchButton'),
 	pickUpButton = $('#pickUpButton'),
