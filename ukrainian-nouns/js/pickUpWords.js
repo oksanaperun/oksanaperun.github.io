@@ -1,7 +1,7 @@
 function pickUpWords(searchText) {
 	var wordsCount = nouns.length;
 
-	for(var i = 0; i < wordsCount; i++) {
+	for (var i = 0; i < wordsCount; i++) {
 		var noun = nouns[i];
 
 		if (noun.name != searchText && isWordFit(searchText, noun.name)) {
@@ -15,7 +15,7 @@ function isWordFit(inputWord, word) {
 		wordLength = word.length;
 
 	if (startInputWordLength >= wordLength) {
-		for(var i = 0; i < wordLength; i++) {
+		for (var i = 0; i < wordLength; i++) {
 			var letter = word.substr(i, 1);
 
 			if (inputWord.indexOf(letter) > -1) {

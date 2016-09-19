@@ -1,12 +1,21 @@
 var searchText,
 	matchedWords = [],
 	maxNumber = 100,
-	searchTextElement = $('#searchText'),
+	searchTextInput = $('#searchText'),
 	searchButton = $('#searchButton'),
 	pickUpButton = $('#pickUpButton');
 
+searchTextInput.keypress(function (e) {
+	var key = e.which;
+
+	if (key == 13) { // the Enter key code
+    	searchButton.click();
+    	return false;  
+  	}
+});   
+
 searchButton.click(function () {
-	searchText = searchTextElement.val();
+	searchText = searchTextInput.val();
 
 	clearPreviousSearchResults();
 	searchWords(searchText);
@@ -14,31 +23,14 @@ searchButton.click(function () {
 });
 
 pickUpButton.click(function () {
-	searchText = searchTextElement.val();
+	searchText = searchTextInput.val();
 
 	clearPreviousSearchResults();
 	pickUpWords(searchText);
 	displayCurrentSearchResults(maxNumber);
 });
 
-showSearchExamplesButton.click(function () {
-	showSearchExamples();
-});
 
-hideSearchExamplesButton.click(function () {
-	hideSearchExamples();
-});
 
-function showSearchExamples() {
-	showSearchExamplesButton.css("display", "none");
-	hideSearchExamplesButton.css("display", "block");
-	searchExamplesItems.css("display", "block");
-}
-
-function hideSearchExamples() {
-	showSearchExamplesButton.css("display", "block");
-	hideSearchExamplesButton.css("display", "none");
-	searchExamplesItems.css("display", "none");
-}
 
 

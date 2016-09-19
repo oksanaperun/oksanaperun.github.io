@@ -42,15 +42,15 @@ function createSearchResultsList(words, startIndex, numberToDisplay) {
 
 	searchResults.append(searchResultsList); 
 
-	for(var i = 0; i < numberToDisplay; i++) {
+	for (var i = 0; i < numberToDisplay; i++) {
 		var wordElement = document.createElement('li');
 
 		if (words[startIndex + i].description) {
-			var info = ' <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" ' +
+			var description = ' <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" ' +
 					'data-placement="top" data-content="' + words[startIndex + i].description + 
 					'"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>';
 			
-			wordElement.innerHTML = words[startIndex + i].name + info;
+			wordElement.innerHTML = words[startIndex + i].name + description;
 		} else wordElement.innerHTML = words[startIndex + i].name;
 
 		$('ul').last().append(wordElement);

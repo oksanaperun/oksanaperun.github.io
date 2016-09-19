@@ -6,7 +6,7 @@ function searchWords(searchText) {
 	
 	var wordsCount = nouns.length;
 
-	for(var i = 0; i < wordsCount; i++) {
+	for (var i = 0; i < wordsCount; i++) {
 		var wordName = isApostropheInSearchText ? nouns[i].name : nouns[i].name.replace("'","");
 
 		if(searchText.test(wordName)) {
