@@ -1,8 +1,8 @@
 var matchedWordsNumber,
 	preparedMatchedWords = [],
 	displayedMatchedWordsNumber,
-	searchResults = $('.search-table-results'),
-	searchResultsHeaderElement = $('.search-table-results-header'),
+	searchResults = $('.search-results'),
+	searchResultsHeaderElement = $('.search-results-header'),
 	sortLinks = $('.sort-links'),
 	sortByAlphabetLink = $('#sortByAlphabetLink'),
 	sortByWordLengthLink = $('#sortByWordLengthLink'),
@@ -45,17 +45,27 @@ function createSearchResultsList(words, startIndex, numberToDisplay) {
 	for(var i = 0; i < numberToDisplay; i++) {
 		var wordElement = document.createElement('li');
 
-		wordElement.innerHTML = words[startIndex + i].name;
+		if (words[startIndex + i].description) {
+			var info = ' <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" ' +
+					'data-placement="top" data-content="' + words[startIndex + i].description + 
+					'"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>';
+			
+			wordElement.innerHTML = words[startIndex + i].name + info;
+		} else wordElement.innerHTML = words[startIndex + i].name;
 
-		$('ul').last().append(wordElement); 
+		$('ul').last().append(wordElement);
 	}
+
+	$(function () {
+  		$('[data-toggle="popover"]').popover();
+});
 }
 
 function getSearchResultsHeaderText() {
 	var searchResultsHeader;
 
 	if (matchedWordsNumber == 0)
-		searchResultsHeader = 'Жодного слова не знайдено...';
+		searchResultsHeader = 'Жодного слова не знайдено... Спробуйте інший вираз';
 	else if (matchedWordsNumber >= 5 && matchedWordsNumber <= 20)
 		searchResultsHeader = 'Знайдено ' + matchedWordsNumber + ' слів:';
 	else switch(matchedWordsNumber % 10) {

@@ -15,7 +15,7 @@
 
 		<div class="container">
 			<div class="row">
- 				<div class="col-md-12 search-table-header"><h2>Пошук слів</h2></div>
+ 				<div class="col-md-12 search-header"><h2>Пошук слів</h2></div>
   				<div class="row">
  					<div class="col-md-6">
  						<div class="row">
@@ -32,40 +32,27 @@
   							</div>
   						</div>
 					</div>
-  					<div class="col-md-6 search-table-description">
+  					<div class="col-md-6 search-description">
   						<p>У формі пошуку можна використовувати наступні символи:</p>
-   				 		<p>* (зірочка) - для позначення будь-якої кількості літер, в тому числі ні однієї</p>
-						<p>. (крапка) - для позначення будь-якої рівно однієї літери</p>			
-						<p>' (апостроф) - для позначення апострофа</p>	
+  						<ul>
+   				 			<li>* (зірочка) - для позначення будь-якої кількості літер, в тому числі ні однієї</li>
+							<li>. (крапка) - для позначення будь-якої рівно однієї літери</li>			
+							<li>' (апостроф) - для позначення апострофа</li>	
+						</ul>
   					</div>
 				</div>
-				<div class="row">
- 					<div class="col-md-6">
- 						<div class="sort-links" style="display: none;">
- 							Сортувати за
- 							<button type="button" id="sortByAlphabetLink" class="btn btn-link">алфавітом</button>
- 							<button type="button" id="sortByWordLengthLink" class="btn btn-link">довжиною слова</button>
- 						</div>
- 						<div class="search-table-results-header">
- 						</div>
-						<div class="search-table-results">
- 						</div>
+ 				<div class="col-md-12">
+ 					<div class="sort-links" style="display: none;">
+ 						Сортувати за
+ 						<button type="button" id="sortByAlphabetLink" class="btn btn-link">алфавітом</button>
+ 						<button type="button" id="sortByWordLengthLink" class="btn btn-link">довжиною слова</button>
  					</div>
-  					<div class="col-md-6 search-table-examples">
-						<button type="button" id="showSearchExamples" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Показати приклади пошуку</button>
-						<button type="button" id="hideSearchExamples" class="btn btn-default btn-sm" style="display: none;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Сховати приклади пошуку</button>
-						<div class="search-table-examples-items" style="display: none;">
-							<p>1. Щоб дізнатися, чи існує певне слово, просто вводимо його в поле пошуку, наприклад, "бук"</p>
-							<p>2. Щоб знайти всі слова, які розпочинаються на "бук", вводимо в поле пошуку "бук*"</p>
-							<p>3. Щоб знайти всі слова, які закінчуються на "бук", вводимо в поле пошуку "*бук"</p>
-							<p>4. Щоб знайти всі слова, які містять в собі "бук", вводимо в поле пошуку "*бук*"</p>
-							<p>5. Щоб знайти всі слова, які складаються з трьох літер, вводимо в поле пошуку "..."</p>
-							<p>6. Щоб знайти всі слова, які складаються з п'яти літер і розпочинаються на "бук", вводимо в поле пошуку "бук.."</p>
-							<p>7. Щоб знайти всі слова, які містять апостроф, вводимо в поле пошуку "*'*"</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-md-offset-4">
+ 					<div class="search-results-header">
+ 					</div>
+					<div class="search-results">
+ 					</div>
+ 				</div>
+				<div class="col-md-12">
 					<button id="showMoreButton" class="btn btn-default" style="display: none">Показати ще</button>
 				</div>
 			</div>

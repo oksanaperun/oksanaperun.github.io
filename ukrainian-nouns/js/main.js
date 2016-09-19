@@ -3,17 +3,13 @@ var searchText,
 	maxNumber = 100,
 	searchTextElement = $('#searchText'),
 	searchButton = $('#searchButton'),
-	pickUpButton = $('#pickUpButton'),
-	showSearchExamplesButton = $('#showSearchExamples'),
-	hideSearchExamplesButton = $('#hideSearchExamples'),
-	searchExamplesItems = $('.search-table-examples-items');
+	pickUpButton = $('#pickUpButton');
 
 searchButton.click(function () {
 	searchText = searchTextElement.val();
 
 	clearPreviousSearchResults();
 	searchWords(searchText);
-	//console.log('Matched words count ' + matchedWords.length);
 	displayCurrentSearchResults(maxNumber);
 });
 
@@ -22,7 +18,6 @@ pickUpButton.click(function () {
 
 	clearPreviousSearchResults();
 	pickUpWords(searchText);
-	//console.log('Matched words count ' + matchedWords.length);
 	displayCurrentSearchResults(maxNumber);
 });
 
@@ -45,4 +40,5 @@ function hideSearchExamples() {
 	hideSearchExamplesButton.css("display", "none");
 	searchExamplesItems.css("display", "none");
 }
+
 
