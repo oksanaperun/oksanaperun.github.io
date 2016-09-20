@@ -4,8 +4,10 @@
 		<link rel="icon" href="img/favicon.ico">
 		<title>Ukrainian Nouns Vocabulary</title>
 		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+		<link href="https://fonts.googleapis.com/css?family=Andika|Merriweather" rel="stylesheet">
 		<link rel="stylesheet" href="main.css">
 	<head>
+
 	<body>
 		<div class="header">
 			<h1>Cловник іменників української мови</h1>
@@ -14,49 +16,53 @@
 		</div>
 
 		<div class="container">
-			<div class="row">
- 				<div class="col-md-12 search-header"><h2>Пошук слів</h2></div>
+			<div class="row search">
+
+				<div class="row">
+  					<div class="col-md-3 col-md-offset-3">
+						<input type="text" id="searchText" class="form-control" placeholder="Введіть маску або слово">
+  					</div>
+  					<div class="col-md-6">
+  						<button id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Знайти слова за маскою</button><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+  					</div>
+  				</div>
+
   				<div class="row">
- 					<div class="col-md-6">
- 						<div class="row">
- 							<div class="col-md-6">
-   						 		<input type="text" id="searchText" class="form-control" value=".....">
-  							</div>
-  							<div class="col-md-6">
-  								<button id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Знайти слова за маскою</button>
-  							</div>
-  						</div>
-  						<div class="row">
-  							<div class="col-md-6 col-md-offset-6">
-  							<button id="pickUpButton" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Підібрати можливі слова</button>
-  							</div>
-  						</div>
-					</div>
-  					<div class="col-md-6 search-description">
-  						<p>У формі пошуку можна використовувати наступні символи:</p>
-  						<ul>
-   				 			<li>* (зірочка) - для позначення будь-якої кількості літер, в тому числі ні однієї</li>
-							<li>. (крапка) - для позначення будь-якої рівно однієї літери</li>			
-							<li>' (апостроф) - для позначення апострофа</li>	
-						</ul>
+  					<div class="col-md-3 col-md-offset-3">
+						<button id="showRandomWord" class="btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Випадкове слово</button>
+  					</div>
+  					<div class="col-md-6">
+  						<button id="pickUpButton" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Підібрати можливі слова</button><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
   					</div>
 				</div>
- 				<div class="col-md-12">
- 					<div class="sort-links" style="display: none;">
- 						Сортувати за
- 						<button type="button" id="sortByAlphabetLink" class="btn btn-link">алфавітом</button>
- 						<button type="button" id="sortByWordLengthLink" class="btn btn-link">довжиною слова</button>
- 					</div>
- 					<div class="search-results-header">
- 					</div>
-					<div class="search-results">
+
+				<div class="row">
+ 					<div class="col-md-12">
+ 						<div class="row">
+ 							<div class="col-md-6">
+ 								<h3 class="search-results-header">
+ 								</h3>
+ 							</div>
+ 							<div class="col-md-6">
+ 								<h3 class="sort-links" style="display: none;">
+ 								Сортувати за
+ 									<button type="button" id="sortByAlphabetLink" class="btn btn-link"><span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> алфавітом</button>
+ 									<button type="button" id="sortByWordLengthLink" class="btn btn-link"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> довжиною слова</button>
+ 								</h3>
+ 							</div>
+ 						</div>
+						<div class="search-results">
+ 						</div>
  					</div>
  				</div>
+
 				<div class="col-md-12">
-					<button id="showMoreButton" class="btn btn-default" style="display: none">Показати ще</button>
+					<button id="showMoreButton" class="btn btn-default" style="display: none">Показати наступні</button>
 				</div>
+
 			</div>
 		</div>
+
 		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 

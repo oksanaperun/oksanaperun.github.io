@@ -1,9 +1,10 @@
 var searchText,
 	matchedWords = [],
-	maxNumber = 100,
+	maxNumber = 60,
 	searchTextInput = $('#searchText'),
 	searchButton = $('#searchButton'),
-	pickUpButton = $('#pickUpButton');
+	pickUpButton = $('#pickUpButton'),
+	showRandomWordLink = $('#showRandomWord');
 
 searchTextInput.keypress(function (e) {
 	var key = e.which;
@@ -30,7 +31,12 @@ pickUpButton.click(function () {
 	displayCurrentSearchResults(maxNumber);
 });
 
-
+showRandomWordLink.click(function () {
+	var randomIndex = Math.floor(Math.random() * (nouns.length + 1));
+	
+	clearPreviousSearchResults();
+	searchTextInput.val(nouns[randomIndex].name);
+});
 
 
 

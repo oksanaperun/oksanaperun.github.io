@@ -11,11 +11,7 @@ var matchedWordsNumber,
 function displayCurrentSearchResults(maxNumber) {
 	matchedWordsNumber = matchedWords.length;
 
-	var searchResultsHeader = document.createElement('h3');
-
-	searchResultsHeader.innerHTML = getSearchResultsHeaderText();
-	
-	searchResultsHeaderElement.append(searchResultsHeader);
+	searchResultsHeaderElement.text(getSearchResultsHeaderText());
 
 	if (matchedWordsNumber != 0) {
 		if (matchedWordsNumber != 1)	
@@ -65,20 +61,20 @@ function getSearchResultsHeaderText() {
 	var searchResultsHeader;
 
 	if (matchedWordsNumber == 0)
-		searchResultsHeader = 'Жодного слова не знайдено... Спробуйте інший вираз';
+		searchResultsHeader = 'Жодного слова не знайдено...';
 	else if (matchedWordsNumber >= 5 && matchedWordsNumber <= 20)
-		searchResultsHeader = 'Знайдено ' + matchedWordsNumber + ' слів:';
+		searchResultsHeader = 'Всього знайдено ' + matchedWordsNumber + ' слів:';
 	else switch(matchedWordsNumber % 10) {
 		case 1:
-			searchResultsHeader = 'Знайдено ' + matchedWordsNumber + ' слово:';
+			searchResultsHeader = 'Всього знайдено ' + matchedWordsNumber + ' слово:';
 			break;
 		case 2:
 		case 3:
 		case 4:
-			searchResultsHeader = 'Знайдено ' + matchedWordsNumber + ' слова:';
+			searchResultsHeader = 'Всього знайдено ' + matchedWordsNumber + ' слова:';
 			break;
 		default:
-			searchResultsHeader = 'Знайдено ' + matchedWordsNumber + ' слів:';
+			searchResultsHeader = 'Всього знайдено ' + matchedWordsNumber + ' слів:';
 			break;
 		}
 
@@ -141,7 +137,10 @@ function hideShowMoreButton() {
 }
 
 function showMoreWords() {
-	var notDisplayedMatchedWordsNumber = matchedWordsNumber - displayedMatchedWordsNumber;
+	var notDisplayedMatchedWordsNumber = matchedWordsNumber - displayedMatchedWordsNumber,
+		separatingLine = document.createElement('hr');
+		
+		searchResults.append(separatingLine);
 
 	if (notDisplayedMatchedWordsNumber < maxNumber) {
 		createSearchResultsList(preparedMatchedWords, displayedMatchedWordsNumber, notDisplayedMatchedWordsNumber);
