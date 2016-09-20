@@ -89,6 +89,10 @@ hr {
 	font-family: 'Merriweather', sans-serif;
 }
 
+.sort-links {
+	margin-left: -15px;
+}
+
 .sort-links, .btn-link, .btn-link:active, .btn-link:focus, .btn-link:hover {
 	color: #e60000;
 }
