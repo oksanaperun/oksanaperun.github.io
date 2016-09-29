@@ -49,7 +49,7 @@ function createSearchResultsList(words, startIndex, numberToDisplay) {
 			wordElement.innerHTML = words[startIndex + i].name + description;
 		} else wordElement.innerHTML = words[startIndex + i].name;
 
-		$('ul').last().append(wordElement);
+		$('.search-results ul').last().append(wordElement);
 	}
 
 	$(function () {
@@ -116,7 +116,7 @@ sortByWordLengthLink.click(function () {
 function getWordsSortedByLength(words) {
 	var wordsNumber = words.length,
 		sortedWords = [],
-		maxWordLength = 20;
+		maxWordLength = 24;
 
 	for (var i = 2; i < maxWordLength; i++) {
 		for (var j = 0; j < wordsNumber; j++) {
@@ -139,15 +139,15 @@ function hideShowMoreButton() {
 function showMoreWords() {
 	var notDisplayedMatchedWordsNumber = matchedWordsNumber - displayedMatchedWordsNumber,
 		separatingLine = document.createElement('hr');
-		
-		searchResults.append(separatingLine);
+
+	searchResults.append(separatingLine);
 
 	if (notDisplayedMatchedWordsNumber < maxNumber) {
 		createSearchResultsList(preparedMatchedWords, displayedMatchedWordsNumber, notDisplayedMatchedWordsNumber);
 		hideShowMoreButton();
 	} else {
-		displayedMatchedWordsNumber = displayedMatchedWordsNumber + maxNumber;
 		createSearchResultsList(preparedMatchedWords, displayedMatchedWordsNumber, maxNumber);
+		displayedMatchedWordsNumber += maxNumber;
 	}	
 }
 

@@ -17,11 +17,11 @@ button:active, button:focus, button:hover, a:active, a:focus, a:hover {
 }
 
 .btn-default, .btn-default:active, .btn-default:focus, .btn-default:hover {
-	border-color: #660033;
+	border-color: #ff6600 !important;
 	width: 200px;
 	padding-left: 5px;
 	padding-right: 5px;
-	background-color: transparent;
+	background-color: transparent !important;
 	box-shadow:none;
 }
 
@@ -36,6 +36,14 @@ button:active, button:focus, button:hover, a:active, a:focus, a:hover {
 .popover-content {
 	color: #00b300;
 	font-family: 'Andika', sans-serif;
+}
+
+a, #helpModal .glyphicon-info-sign {
+	color: #99ff33
+}
+
+a:active, a:focus, a:hover {
+	color: #00b300;
 }
 
 hr {
@@ -75,13 +83,14 @@ hr {
     list-style: none;
 	padding-left: 0px;
 	margin-top: 10px;
+	font-size: medium;
 }
 
 .search-results li {
 	padding-bottom: 4px;
 }
 
-.search-results-header, a, a:active, a:focus, a:hover {
+.search-results-header {
 	color: #00b300;
 }
 
@@ -101,13 +110,18 @@ hr {
 	color: #e60000;
 	border-color: #e60000;
 	border-width: medium;
+	font-size: large;
 }
 
-#searchButton, #pickUpButton, .search-results {
+#searchButton, #pickUpButton, #helpModal, .search-results {
 	color: #660033;
 }
 
-#showMoreButton, .search-description {
+#showMoreButton, .search-description, #helpModal button {
+	color: #e60000;
+}
+
+#helpModal .modal-title {
 	color: #e60000;
 }
 
@@ -119,7 +133,7 @@ hr {
 	border: none;
     background: none;
     text-align: left;
-    color: #993333;
+    color: #ff0000;
 }
 
 #searchText::-webkit-input-placeholder {

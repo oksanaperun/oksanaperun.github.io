@@ -6,14 +6,17 @@ var searchText,
 	pickUpButton = $('#pickUpButton'),
 	showRandomWordLink = $('#showRandomWord');
 
-searchTextInput.keypress(function (e) {
-	var key = e.which;
+$('body').keypress(function (e) {
+  	if (e.shiftKey && e.keyCode == 13) { // the Enter key code
+		pickUpButton.click();
+    	return false;  
+  	}
 
-	if (key == 13) { // the Enter key code
+  	if (e.keyCode == 13) {
     	searchButton.click();
     	return false;  
   	}
-});   
+});
 
 searchButton.click(function () {
 	searchText = searchTextInput.val();

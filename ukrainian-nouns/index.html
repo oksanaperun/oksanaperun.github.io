@@ -23,7 +23,7 @@
 						<input type="text" id="searchText" class="form-control" placeholder="Введіть маску або слово">
   					</div>
   					<div class="col-md-6">
-  						<button id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Знайти слова за маскою</button><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+  						<button id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Знайти слова за маскою</button><span id="searchHelp" class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="modal" data-target="#helpModal"></span>
   					</div>
   				</div>
 
@@ -32,7 +32,7 @@
 						<button id="showRandomWord" class="btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Випадкове слово</button>
   					</div>
   					<div class="col-md-6">
-  						<button id="pickUpButton" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Підібрати можливі слова</button><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+  						<button id="pickUpButton" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Підібрати можливі слова</button><span id="pickUpHelp" class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="modal" data-target="#helpModal"></span>
   					</div>
 				</div>
 
@@ -61,6 +61,23 @@
 				</div>
 
 			</div>
+
+			<div id="helpModal" class="modal fade" role="dialog">
+			  	<div class="modal-dialog">
+ 			   		<div class="modal-content">
+ 			     		<div class="modal-header">
+ 			      			<button type="button" class="close" data-dismiss="modal">&times;</button>
+ 			      			<h4 class="modal-title">Довідка</h4>
+			      		</div>
+			      		<div class="modal-body">
+			      		</div>
+			      		<div class="modal-footer">
+ 			       			<button type="button" class="btn btn-default" data-dismiss="modal">Зрозуміло</button>
+ 			     		</div>
+ 			   		</div>
+			  	</div>
+			</div>
+
 		</div>
 
 		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -70,6 +87,7 @@
 		<script src="js/pickUpWords.js"></script>
 		<script src="js/searchResults.js"></script>
 		<script src="js/searchWords.js"></script>
+		<script src="js/help.js"></script>
 		<script src="data/nouns.js"></script>
 	</body>
 </html>
