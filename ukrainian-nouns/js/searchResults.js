@@ -24,7 +24,7 @@ function displayCurrentSearchResults(maxNumber) {
 }
 
 function displayFirstMatchedWords() {	
-	if (matchedWordsNumber < maxNumber) {
+	if (matchedWordsNumber <= maxNumber) {
 			createSearchResultsList(preparedMatchedWords, 0, matchedWordsNumber);
 	} else {
 		createSearchResultsList(preparedMatchedWords, 0, maxNumber);
