@@ -142,7 +142,7 @@ function showMoreWords() {
 
 	searchResults.append(separatingLine);
 
-	if (notDisplayedMatchedWordsNumber < maxNumber) {
+	if (notDisplayedMatchedWordsNumber <= maxNumber) {
 		createSearchResultsList(preparedMatchedWords, displayedMatchedWordsNumber, notDisplayedMatchedWordsNumber);
 		hideShowMoreButton();
 	} else {
